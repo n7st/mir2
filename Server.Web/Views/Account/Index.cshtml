@@ -1,0 +1,18 @@
+@using Server.MirDatabase
+@using System.Collections
+
+<h1>Accounts</h1>
+
+@if (ViewData["Accounts"] is IEnumerable<AccountInfo>)
+{
+    <ul>
+        @foreach (AccountInfo account in (IEnumerable)ViewData["Accounts"])
+        {
+            <li>Account name: @account.UserName</li>
+        }
+    </ul>
+}
+else
+{
+    <p>There are no accounts.</p>
+}
