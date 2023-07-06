@@ -15,7 +15,13 @@ namespace Server
         public readonly ConcurrentQueue<string> DebugLog = new ConcurrentQueue<string>();
         public readonly ConcurrentQueue<string> ChatLog = new ConcurrentQueue<string>();
 
-        public MessageQueue() { }
+        public List<ConcurrentQueue<string>> Logs => new List<ConcurrentQueue<string>>(){
+            MessageLog,
+            DebugLog,
+            ChatLog,
+        };
+
+        public MessageQueue() {}
 
         public void Enqueue(string msg)
         {
